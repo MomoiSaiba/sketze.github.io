@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Время в городах России</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: #282985;
+            color: #333;
+        }
+        h1 {
+            color: #ffffff;
+        }
+        h2 {
+            color: #020202;
+        }
+        h3 {
+            color: #1567ff;
+        }
+        .timezone-group {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .cities-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .city {
+            margin: 0 20px;
+            padding: 15px;
+            background-color: #c5c5c5;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .city img {
+            width: 100px;
+            height: 80px;
+            object-fit: cover; /* сохраняет пропорции и обрезает изображение, чтобы оно полностью заполняло контейнер */
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #000000;
+            margin-top: 8px;
+            font-style:oblique;
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Время в городах России</h1>
+    <img class="header-image" src="http://world-time-zones.ru/wtz-russia-2019.jpg" alt="Красивая картинка">
+    <!-- Группы городов по часовым поясам -->
+    <div class="timezone-group" id="kaliningrad-group">
+        <h2>Часовой пояс: -1</h2>
+        <div class="cities-container" id="europe-1-cities">
+            <div class="city" id="kaliningrad">
+                <img src="https://koiro.edu.ru/wp-content/uploads/2021/10/36d9e58f8c113095acc2f7b9d2f2ffd4.jpg" alt="Картинка города">
+                <h3>Калининград</h3>
+                <p id="kaliningrad-time"></p>
+            </div>
+            <div class="city" id="baltiysk">
+               <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/BaltiyskPillau_05-2017_img07_aerial_photo.jpg">
+                <h3>Балтийск</h3>
+                <p id="baltiysk-time"></p>
+            </div>
+            <div class="city" id="zelenogradsk">
+                <img src="https://static.aviasales.com/p-static/ru/uploads/2023/08/%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D0%BE%D0%B3%D1%80%D0%B0%D0%B4%D1%81%D0%BA.jpg">
+                <h3>Зеленоградск</h3>
+                <p id="zelenogradsk-time"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="timezone-group" id="europe-group">
+        <h2>Часовой пояс: 0</h2>
+        <div class="cities-container" id="europe0-cities">
+            <div class="city" id="moscow">
+                <img src="https://rgo.ru/upload/s34web.imageadapter/44d22e3d406f750bcd99a92010ae9d76/20.02.2014_ilya_melnikov_moskva.jpg">
+                <h3>Москва</h3>
+                <p id="moscow-time"></p>
+            </div>
+            <div class="city" id="stpetersburg">
+                <img src="https://avatars.mds.yandex.net/get-marketcms/1779479/img-fa8a7f10-039f-4543-b4ac-da59191126bd.jpeg/optimize">
+                <h3>Санкт-Петербург</h3>
+                <p id="stpetersburg-time"></p>
+            </div>
+            <div class="city" id="nizhnynovgorod">
+                <img src="https://s0.rbk.ru/v6_top_pics/media/img/9/35/756170977456359.jpg">
+                <h3>Нижний Новгород</h3>
+                <p id="nizhnynovgorod-time"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="timezone-group" id="europe+1-group">
+        <h2>Часовой пояс: +1</h2>
+        <div class="cities-container" id="europe+1-cities">
+            <div class="city" id="astrakhan">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/%D0%90%D1%81%D1%82%D1%80%D0%B0%D1%85%D0%B0%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_%D0%BA%D1%80%D0%B5%D0%BC%D0%BB%D1%8C.jpg">
+                <h3>Астрахань</h3>
+                <p id="astrakhan-time"></p>
+            </div>
+            <div class="city" id="samara">
+                <img src="https://www.advantour.com/russia/images/samara/samara5.jpg">
+                <h3>Самара</h3>
+                <p id="samara-time"></p>
+            </div>
+            <div class="city" id="izhevsk">
+                <img src="https://img.geliophoto.com/izhevsk/02_izhevsk.jpg">
+                <h3>Ижевск</h3>
+                <p id="izhevsk-time"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="timezone-group" id="asia-group">
+        <h2>Часовой пояс: +2</h2>
+        <div class="cities-container" id="asia-cities">
+            <div class="city" id="ekaterinburg">
+                <img src="https://avatars.mds.yandex.net/get-marketcms/879900/img-91d50dcd-33aa-4044-b923-68f734e18b7a.jpeg/optimize">
+                <h3>Екатеринбург</h3>
+                <p id="ekaterinburg-time"></p>
+            </div>
+            <div class="city" id="tyumen">
+                <img src="https://www.advantour.com/img/russia/images/tyumen.jpg">
+                <h3>Тюмень</h3>
+                <p id="tyumen-time"></p>
+            </div>
+            <div class="city" id="chelyabinsk">
+                <img src="https://chelreglib.ru/media/files/kray/chelyabinsk/chelyabinsk-sovremennyj.jpg">
+                <h3>Челябинск</h3>
+                <p id="chelyabinsk-time"></p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="timezone-group" id="asia-group2">
+        <h2>Часовой пояс: +3</h2>
+        <div class="cities-container" id="asia-2-cities">
+            <div class="city" id="omsk">
+                <img src="https://pltf.ru/wp-content/uploads/2016/08/409f6e85502e53cb07d561664c5992af.jpg">
+                <h3>Омск</h3>
+                <p id="omsk-time"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="timezone-group" id="asia-group3">
+        <h2>Часовой пояс: +4</h2>
+        <div class="cities-container" id="asia-3-cities">
+            <div class="city" id="novosibirsk">
+                <img src="https://cdn.britannica.com/92/144492-050-FD8409C7/Novosibirsk-Russia.jpg">
+                <h3>Новосибирск</h3>
+                <p id="novosibirsk-time"></p>
+            </div>
+            <div class="city" id="krasnoyarsk">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D1%8F%D1%80%D1%81%D0%BA_%28%D0%BD%D0%BE%D1%87%D0%BD%D0%BE%D0%B9%29.jpg">
+                <h3>Красноярск</h3>
+                <p id="krasnoyarsk-time"></p>
+            </div>
+            <div class="city" id="barnaul">
+                <img src="https://tripplanet.ru/wp-content/uploads/europe/russia/barnaul/dostoprimechatelnosti-barnaula.jpg">
+                <h3>Барнаул</h3>
+                <p id="barnaul-time"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="timezone-group" id="asia-group4">
+        <h2>Часовой пояс: +5</h2>
+        <div class="cities-container" id="asia-4-cities">
+            <div class="city" id="irkutsk">
+                <img src="https://sia.ru/files/Image/news/2023-06/450872/big_news_450872_id122765.jpg">
+                <h3>Иркутск</h3>
+                <p id="irkutsk-time"></p>
+            </div>
+            <div class="city" id="ulan-ude">
+                <img src="https://cdn2.tu-tu.ru/image/pagetree_node_data/1/8565be9564eb03c63041d8fa30b590b1/">
+                <h3>Улан-Удэ</h3>
+                <p id="ulan-ude-time"></p>
+            </div>
+            <div class="city" id="bratsk">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Bratskfountain.jpg">
+                <h3>Братск</h3>
+                <p id="bratsk-time"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="timezone-group" id="asia-group5">
+        <h2>Часовой пояс: +6</h2>
+        <div class="cities-container" id="asia-5-cities">
+            <div class="city" id="chita">
+                <img src="https://triplook.me/media/resorts/photo/f/1/c07.jpg">
+                <h3>Чита</h3>
+                <p id="chita-time"></p>
+            </div>
+            <div class="city" id="yakutsk">
+                <img src="https://cdnn21.img.ria.ru/images/151272/68/1512726840_0:46:1001:609_1920x0_80_0_0_1608e87ebb153917daf3a773e305d980.jpg">
+                <h3>Якутск</h3>
+                <p id="yakutsk-time"></p>
+            </div>
+            <div class="city" id="blagoveschensk">
+                <img src="https://nesiditsa.ru/wp-content/uploads/2013/01/0_ae509_1aab81b1_orig.jpg">
+                <h3>Благовещенск</h3>
+                <p id="blagoveschensk-time"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="timezone-group" id="asia-group6">
+        <h2>Часовой пояс: +7</h2>
+        <div class="cities-container" id="asia-6-cities">
+            <div class="city" id="vladivostok">
+                <img src="https://avatars.mds.yandex.net/get-marketcms/879900/img-0e0b4618-d588-4b55-86e5-c66ec1a6d994.jpeg/optimize">
+                <h3>Владивосток</h3>
+                <p id="vladivostok-time"></p>
+            </div>
+            <div class="city" id="khabarovsk">
+                <img src="https://www.advantour.com/img/russia/images/khabarovsk.jpg">
+                <h3>Хабаровск</h3>
+                <p id="khabarovsk-time"></p>
+            </div>
+            <div class="city" id="komsomolsk">
+                <img src="https://img.geliophoto.com/kna/02_kna.jpg">
+                <h3>Комсомольск-на-Амуре</h3>
+                <p id="komsomolsk-time"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateClock(cityId, timezone) {
+            const cityElement = document.getElementById(cityId);
+            const timeElement = document.getElementById(`${cityId}-time`);
+            const now = new Date();
+            const options = {
+                timeZone: timezone,
+                hour: '2-digit', // Use 2 digits for hours
+                minute: 'numeric',
+                second: 'numeric',
+                hour12: false, // 24-hour format
+            };
+            const timeString = new Intl.DateTimeFormat('en-US', options).format(now);
+            timeElement.textContent = `Текущее время: ${timeString}`;
+        }
+
+        setInterval(() => {
+            // Обновление времени для городов
+            updateClock('moscow', 'Europe/Moscow');
+            updateClock('stpetersburg', 'Europe/Moscow');
+            updateClock('nizhnynovgorod','Europe/Moscow');
+            updateClock('kaliningrad', 'Europe/Kaliningrad');
+            updateClock('baltiysk', 'Europe/Kaliningrad');
+            updateClock('zelenogradsk', 'Europe/Kaliningrad');
+            updateClock('astrakhan', 'Europe/Astrakhan');
+            updateClock('samara', 'Europe/Samara');
+            updateClock('izhevsk', 'Europe/Samara');
+            updateClock('ekaterinburg', 'Asia/Yekaterinburg');
+            updateClock('tyumen', 'Asia/Yekaterinburg');
+            updateClock('chelyabinsk', 'Asia/Yekaterinburg');
+            updateClock('omsk', 'Asia/Omsk');
+            updateClock('novosibirsk', 'Asia/Novosibirsk');
+            updateClock('krasnoyarsk', 'Asia/Krasnoyarsk');
+            updateClock('barnaul', 'Asia/Novosibirsk');
+            updateClock('irkutsk', 'Asia/Irkutsk');
+            updateClock('ulan-ude', 'Asia/Irkutsk');
+            updateClock('bratsk', 'Asia/Irkutsk');
+            updateClock('chita', 'Asia/Chita');
+            updateClock('yakutsk', 'Asia/Yakutsk');
+            updateClock('blagoveschensk', 'Asia/Yakutsk');
+            updateClock('vladivostok', 'Asia/Vladivostok');
+            updateClock('khabarovsk', 'Asia/Vladivostok');
+            updateClock('komsomolsk', 'Asia/Vladivostok');
+        }, 1000);
+    </script>
+</body>
+</html>
